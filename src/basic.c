@@ -1,56 +1,53 @@
 #include <stdio.h>
 #include <math.h>
 #include "basic.h"
+#include "input.h"
 
 void inputNumbers(double *num1, double *num2)
 {
-    printf("Enter first number: ");
-    scanf("%lf", num1);
-
-    printf("Enter second number: ");
-    scanf("%lf", num2);
+    *num1 = getValidNumber("Enter first number: ");
+    *num2 = getValidNumber("Enter second number: ");
 }
 
-void addition(double num1, double num2)
+double addition(double num1, double num2)
 {
-    printf("Result = %.2lf\n\n", num1 + num2);
+    return num1+num2;
 }
 
-void subtraction(double num1, double num2)
+double subtraction(double num1, double num2)
 {
-    printf("Result = %.2lf\n\n", num1 - num2);
+    return num1-num2;
 }
 
-void multiplication(double num1, double num2)
+double multiplication(double num1, double num2)
 {
-    printf("Result = %.2lf\n", num1 * num2);
+    return num1*num2;
 }
 
-void division(double num1, double num2)
+double division(double num1, double num2)
 {
     if (num2==0){
-        printf("Number cannot be divided by Zero!");
+        printf("Cannot be divided by Zero!\n");
+        return 0;
     }
-    else{
-        printf("Result = %.2lf\n\n", num1 / num2);
-    }
+    return num1/num2;
 }
 
-void modulus(double num1, double num2)
+double modulus(double num1, double num2)
 {
-    printf("Result = %.2lf\n\n", fmod(num1, num2));
+    return fmod(num1, num2);
 }
 
-void power(double num1, double num2)
+double power(double num1, double num2)
 {
-    printf("Result = %.2lf\n\n", pow(num1,num2));
+    return pow(num1,num2);
 }
 
 
 void basicCalculatorMenu()
 {
     int choice;
-    double num1, num2;
+    double num1, num2, result;
 
     do{
         printf("\n=====================================\n");
@@ -70,32 +67,38 @@ void basicCalculatorMenu()
         switch (choice) {
             case 1:
               inputNumbers(&num1, &num2);
-              addition(num1, num2);
+              result = addition(num1, num2);
+              printf("Result = %.2lf\n", result);
               break;
         
             case 2:
               inputNumbers(&num1, &num2);
-              subtraction(num1, num2);
+              result = subtraction(num1, num2);
+              printf("Result = %.2lf\n", result);
               break;
 
             case 3:
               inputNumbers(&num1, &num2);
-              multiplication(num1, num2);
+              result = multiplication(num1, num2);
+              printf("Result = %.2lf\n", result);
               break;
 
             case 4:
+              inputNumbers(&num1, &num2);
               inputNumbers(&num1, &num2);
               division(num1, num2);
               break;
 
             case 5:
               inputNumbers(&num1, &num2);
-              modulus(num1, num2);
+              result = modulus(num1, num2);
+              printf("Result = %.2lf\n", result);
               break;
 
             case 6:
               inputNumbers(&num1, &num2);
-              power(num1, num2);
+              result = power(num1, num2);
+              printf("Result = %.2lf\n", result);
               break;
 
             case 7:
