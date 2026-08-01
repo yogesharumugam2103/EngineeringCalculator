@@ -2,10 +2,56 @@
 #include <math.h>
 #include "basic.h"
 
+void inputNumbers(double *num1, double *num2)
+{
+    printf("Enter first number: ");
+    scanf("%lf", num1);
+
+    printf("Enter second number: ");
+    scanf("%lf", num2);
+}
+
+void addition(double num1, double num2)
+{
+    printf("Result = %.2lf\n\n", num1 + num2);
+}
+
+void subtraction(double num1, double num2)
+{
+    printf("Result = %.2lf\n\n", num1 - num2);
+}
+
+void multiplication(double num1, double num2)
+{
+    printf("Result = %.2lf\n", num1 * num2);
+}
+
+void division(double num1, double num2)
+{
+    if (num2==0){
+        printf("Number cannot be divided by Zero!");
+    }
+    else{
+        printf("Result = %.2lf\n\n", num1 / num2);
+    }
+}
+
+void modulus(double num1, double num2)
+{
+    printf("Result = %.2lf\n\n", fmod(num1, num2));
+}
+
+void power(double num1, double num2)
+{
+    printf("Result = %.2lf\n\n", pow(num1,num2));
+}
+
+
 void basicCalculatorMenu()
 {
-    int choice,num1,num2;
-    
+    int choice;
+    double num1, num2;
+
     do{
         printf("\n=====================================\n");
         printf("        BASIC CALCULATOR\n");
@@ -23,51 +69,33 @@ void basicCalculatorMenu()
         scanf("%d",&choice);
         switch (choice) {
             case 1:
-              printf("Enter first number: ");
-              scanf("%d",&num1);
-              printf("Enter second number: ");
-              scanf("%d",&num2);
-              printf("Result = %d\n\n",num1+num2);
+              inputNumbers(&num1, &num2);
+              addition(num1, num2);
               break;
         
             case 2:
-              printf("Enter first number: ");
-              scanf("%d",&num1);
-              printf("Enter second number: ");
-              scanf("%d",&num2);
-              printf("Result = %d\n\n",num1-num2);
+              inputNumbers(&num1, &num2);
+              subtraction(num1, num2);
               break;
 
             case 3:
-              printf("Enter first number: ");
-              scanf("%d",&num1);
-              printf("Enter second number: ");
-              scanf("%d",&num2);
-              printf("Result = %d\n\n",num1*num2);
+              inputNumbers(&num1, &num2);
+              multiplication(num1, num2);
               break;
 
             case 4:
-              printf("Enter first number: ");
-              scanf("%d",&num1);
-              printf("Enter second number: ");
-              scanf("%d",&num2);
-              printf("Result = %d\n\n",num1/num2);
+              inputNumbers(&num1, &num2);
+              division(num1, num2);
               break;
 
             case 5:
-              printf("Enter first number: ");
-              scanf("%d",&num1);
-              printf("Enter second number: ");
-              scanf("%d",&num2);
-              printf("Result = %d\n\n",num1%num2);
+              inputNumbers(&num1, &num2);
+              modulus(num1, num2);
               break;
 
             case 6:
-              printf("Enter first number: ");
-              scanf("%d",&num1);
-              printf("Enter second number: ");
-              scanf("%d",&num2);
-              printf("Result = %d\n\n",pow(num1,num2));
+              inputNumbers(&num1, &num2);
+              power(num1, num2);
               break;
 
             case 7:
