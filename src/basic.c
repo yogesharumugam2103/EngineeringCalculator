@@ -24,18 +24,26 @@ double multiplication(double num1, double num2)
     return num1*num2;
 }
 
-double division(double num1, double num2)
+int division(double num1, double num2, double *result)
 {
     if (num2==0){
-        printf("Cannot be divided by Zero!\n");
-        return 0;
+      return 0;
     }
-    return num1/num2;
+    
+    *result = num1 / num2;
+    return 1;
+    
 }
 
-double modulus(double num1, double num2)
+int modulus(double num1, double num2, double *result)
 {
-    return fmod(num1, num2);
+    if (num2==0){
+      return 0;
+    }
+    
+    *result = fmod(num1, num2);
+    return 1;
+    
 }
 
 double power(double num1, double num2)
@@ -84,14 +92,24 @@ void basicCalculatorMenu()
 
             case 4:
               inputNumbers(&num1, &num2);
-              result = division(num1, num2);
-              printf("Result = %.2lf\n", result);
+              if (division(num1, num2, &result))
+              {
+                printf("Result = %.2lf\n", result);
+              }
+              else{
+                printf("Cannot divide by zero!\n");
+              }
               break;
 
             case 5:
               inputNumbers(&num1, &num2);
-              result = modulus(num1, num2);
-              printf("Result = %.2lf\n", result);
+              if (modulus(num1, num2, &result))
+              {
+                printf("Result = %.2lf\n", result);
+              }
+              else{
+                printf("Cannot perform modulus with zero!\n");
+              }
               break;
 
             case 6:
