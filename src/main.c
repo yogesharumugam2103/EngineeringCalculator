@@ -1,27 +1,18 @@
 #include <stdio.h>
+#include "menu.h"
+#include "basic.h"
 
+    
 int main()
 {
     int choice;
     do{
-        printf("=====================================\n");
-        printf("      ENGINEERING CALCULATOR\n");
-        printf("=====================================\n");
-        printf("\n");
-    
-        printf("1. Basic Calculator\n");
-        printf("2. Scientific Calculator\n");
-        printf("3. Matrix Operations\n");
-        printf("4. Unit Converter\n");
-        printf("5. Statistics\n");
-        printf("6. Number System Converter\n");
-        printf("7. Exit\n");
-        printf("\n");
-        printf("Enter your choice: ");
+        displayMainMenu();
+
         scanf("%d",&choice);
         switch (choice) {
             case 1:
-              printf("\nBasic Calculator Selected\n\n");
+              basicCalculatorMenu();
               break;
         
             case 2:
@@ -50,7 +41,6 @@ int main()
 
             default:
               printf("\nInvalid choice! Please try again.\n\n");
-              break;
         }
     } while(choice!=7);
 
