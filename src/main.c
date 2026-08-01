@@ -3,14 +3,15 @@
 #include "basic.h"
 #include "input.h"
 #include "utility.h"
-   
+#include "history.h"
+
 int main()
 {
     int choice;
     do{
         clearScreen();
         displayMainMenu();
-        choice = getValidChoice("Enter your choice: ", 1, 7);
+        choice = getValidChoice("Enter your choice: ", 1, 8);
 
         switch (choice) {
             case 1:
@@ -38,13 +39,18 @@ int main()
               break;
 
             case 7:
+              displayHistory();
+              pauseScreen();
+              break;
+
+            case 8:
               printf("\nThank you for using Engineering Calculator!\n\n");
               break;
 
             default:
               printf("\nInvalid choice! Please try again.\n\n");
         }
-    } while(choice!=7);
+    } while(choice!=8);
 
     return 0;
 }

@@ -3,6 +3,7 @@
 #include "basic.h"
 #include "input.h"
 #include "utility.h"
+#include "history.h"
 
 void inputNumbers(double *num1, double *num2)
 {
@@ -78,6 +79,13 @@ void basicCalculatorMenu()
               inputNumbers(&num1, &num2);
               result = addition(num1, num2);
               printf("Result = %.2lf\n", result);
+              char entry[100];
+              snprintf(entry, sizeof(entry),
+                       "%.2lf + %.2lf = %.2lf",
+                       num1, num2, result);
+
+              addHistory(entry);
+
               pauseScreen();
               break;
         
@@ -85,13 +93,27 @@ void basicCalculatorMenu()
               inputNumbers(&num1, &num2);
               result = subtraction(num1, num2);
               printf("Result = %.2lf\n", result);
-              pauseScreen();
+              char entry[100];
+              snprintf(entry, sizeof(entry),
+                       "%.2lf - %.2lf = %.2lf",
+                       num1, num2, result);
+
+              addHistory(entry);
+
+              pauseScreen();              
+
               break;
 
             case 3:
               inputNumbers(&num1, &num2);
               result = multiplication(num1, num2);
               printf("Result = %.2lf\n", result);
+              char entry[100];
+              snprintf(entry, sizeof(entry),
+                       "%.2lf * %.2lf = %.2lf",
+                       num1, num2, result);
+
+              addHistory(entry);
               pauseScreen();
               break;
 
@@ -104,6 +126,12 @@ void basicCalculatorMenu()
               else{
                 printf("Cannot divide by zero!\n");
               }
+              char entry[100];
+              snprintf(entry, sizeof(entry),
+                       "%.2lf / %.2lf = %.2lf",
+                       num1, num2, result);
+
+              addHistory(entry);
               pauseScreen();
               break;
 
@@ -116,6 +144,12 @@ void basicCalculatorMenu()
               else{
                 printf("Cannot perform modulus with zero!\n");
               }
+              char entry[100];
+              snprintf(entry, sizeof(entry),
+                       "%.2lf %% %.2lf = %.2lf",
+                       num1, num2, result);
+
+              addHistory(entry);
               pauseScreen();
               break;
 
@@ -123,6 +157,12 @@ void basicCalculatorMenu()
               inputNumbers(&num1, &num2);
               result = power(num1, num2);
               printf("Result = %.2lf\n", result);
+              char entry[100];
+              snprintf(entry, sizeof(entry),
+                       "%.2lf ^ %.2lf = %.2lf",
+                       num1, num2, result);
+
+              addHistory(entry);
               pauseScreen();
               break;
 

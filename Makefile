@@ -6,7 +6,8 @@ SRC = src/main.c \
       src/menu.c \
       src/basic.c \
       src/input.c \
-      src/utility.c
+      src/utility.c \
+      src/history.c
 
 TARGET = calculator
 

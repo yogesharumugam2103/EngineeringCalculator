@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "menu.h"
+#include "history.h"
 
 void displayMainMenu()
 {
@@ -13,6 +14,7 @@ void displayMainMenu()
         printf("4. Unit Converter\n");
         printf("5. Statistics\n");
         printf("6. Number System Converter\n");
-        printf("7. Exit\n\n");
+        printf("7. History\n");
+        printf("8. Exit\n\n");
 
 }
