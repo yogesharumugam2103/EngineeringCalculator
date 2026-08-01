@@ -2,11 +2,13 @@
 #include "menu.h"
 #include "basic.h"
 #include "input.h"
-    
+#include "utility.h"
+   
 int main()
 {
     int choice;
     do{
+        clearScreen();
         displayMainMenu();
         choice = getValidChoice("Enter your choice: ", 1, 7);
 

@@ -5,7 +5,8 @@ CFLAGS = -Iinclude
 SRC = src/main.c \
       src/menu.c \
       src/basic.c \
-      src/input.c
+      src/input.c \
+      src/utility.c
 
 TARGET = calculator
 

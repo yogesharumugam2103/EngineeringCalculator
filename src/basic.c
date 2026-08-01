@@ -2,6 +2,7 @@
 #include <math.h>
 #include "basic.h"
 #include "input.h"
+#include "utility.h"
 
 void inputNumbers(double *num1, double *num2)
 {
@@ -58,6 +59,7 @@ void basicCalculatorMenu()
     double num1, num2, result;
 
     do{
+        clearScreen();
         printf("\n=====================================\n");
         printf("        BASIC CALCULATOR\n");
         printf("=====================================\n\n");
@@ -76,18 +78,21 @@ void basicCalculatorMenu()
               inputNumbers(&num1, &num2);
               result = addition(num1, num2);
               printf("Result = %.2lf\n", result);
+              pauseScreen();
               break;
         
             case 2:
               inputNumbers(&num1, &num2);
               result = subtraction(num1, num2);
               printf("Result = %.2lf\n", result);
+              pauseScreen();
               break;
 
             case 3:
               inputNumbers(&num1, &num2);
               result = multiplication(num1, num2);
               printf("Result = %.2lf\n", result);
+              pauseScreen();
               break;
 
             case 4:
@@ -99,6 +104,7 @@ void basicCalculatorMenu()
               else{
                 printf("Cannot divide by zero!\n");
               }
+              pauseScreen();
               break;
 
             case 5:
@@ -110,12 +116,14 @@ void basicCalculatorMenu()
               else{
                 printf("Cannot perform modulus with zero!\n");
               }
+              pauseScreen();
               break;
 
             case 6:
               inputNumbers(&num1, &num2);
               result = power(num1, num2);
               printf("Result = %.2lf\n", result);
+              pauseScreen();
               break;
 
             case 7:
@@ -123,6 +131,7 @@ void basicCalculatorMenu()
 
             default:
               printf("\nInvalid choice! Please try again.\n\n");
+              pauseScreen();
               break;
         }
     } while(choice!=7);
