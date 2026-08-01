@@ -15,4 +15,4 @@ A modular engineering calculator built in C as a learning project.
 
 ## Author
 
-Arumu
+YOGESH A
