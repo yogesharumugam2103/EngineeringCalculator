@@ -93,7 +93,7 @@ void basicCalculatorMenu()
               inputNumbers(&num1, &num2);
               result = subtraction(num1, num2);
               printf("Result = %.2lf\n", result);
-              char entry[100];
+
               snprintf(entry, sizeof(entry),
                        "%.2lf - %.2lf = %.2lf",
                        num1, num2, result);
@@ -108,7 +108,7 @@ void basicCalculatorMenu()
               inputNumbers(&num1, &num2);
               result = multiplication(num1, num2);
               printf("Result = %.2lf\n", result);
-              char entry[100];
+
               snprintf(entry, sizeof(entry),
                        "%.2lf * %.2lf = %.2lf",
                        num1, num2, result);
@@ -126,7 +126,7 @@ void basicCalculatorMenu()
               else{
                 printf("Cannot divide by zero!\n");
               }
-              char entry[100];
+
               snprintf(entry, sizeof(entry),
                        "%.2lf / %.2lf = %.2lf",
                        num1, num2, result);
@@ -144,7 +144,7 @@ void basicCalculatorMenu()
               else{
                 printf("Cannot perform modulus with zero!\n");
               }
-              char entry[100];
+
               snprintf(entry, sizeof(entry),
                        "%.2lf %% %.2lf = %.2lf",
                        num1, num2, result);
@@ -157,7 +157,7 @@ void basicCalculatorMenu()
               inputNumbers(&num1, &num2);
               result = power(num1, num2);
               printf("Result = %.2lf\n", result);
-              char entry[100];
+
               snprintf(entry, sizeof(entry),
                        "%.2lf ^ %.2lf = %.2lf",
                        num1, num2, result);

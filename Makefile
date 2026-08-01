@@ -7,7 +7,8 @@ SRC = src/main.c \
       src/basic.c \
       src/input.c \
       src/utility.c \
-      src/history.c
+      src/history.c \
+      src/scientific.c 
 
 TARGET = calculator
 

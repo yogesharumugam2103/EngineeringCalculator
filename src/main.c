@@ -4,6 +4,7 @@
 #include "input.h"
 #include "utility.h"
 #include "history.h"
+#include "scientific.h"
 
 int main()
 {
@@ -19,7 +20,7 @@ int main()
               break;
         
             case 2:
-              printf("\nScientific Calculator Selected\n\n");
+              scientificCalculatorMenu();
               break;
 
             case 3:
