@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include "menu.h"
 #include "basic.h"
-
+#include "input.h"
     
 int main()
 {
     int choice;
     do{
         displayMainMenu();
+        choice = getValidChoice("Enter your choice: ", 1, 7);
 
-        scanf("%d",&choice);
         switch (choice) {
             case 1:
               basicCalculatorMenu();

@@ -15,5 +15,4 @@ void displayMainMenu()
         printf("6. Number System Converter\n");
         printf("7. Exit\n\n");
 
-        printf("Enter your choice: ");
 }

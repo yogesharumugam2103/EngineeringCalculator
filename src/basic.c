@@ -62,8 +62,7 @@ void basicCalculatorMenu()
         printf("6. Power\n");
         printf("7. Back\n");
         printf("\n");
-        printf("Enter your choice: ");
-        scanf("%d",&choice);
+        choice = getValidChoice("Enter your choice: ", 1, 7);
         switch (choice) {
             case 1:
               inputNumbers(&num1, &num2);
@@ -85,8 +84,8 @@ void basicCalculatorMenu()
 
             case 4:
               inputNumbers(&num1, &num2);
-              inputNumbers(&num1, &num2);
-              division(num1, num2);
+              result = division(num1, num2);
+              printf("Result = %.2lf\n", result);
               break;
 
             case 5:
