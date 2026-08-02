@@ -504,6 +504,106 @@ void timeConverter()
     } while(choice!=7);
 }
 
+void areaConverter()
+{
+    int choice;
+    double value;
+    double result;
+    char entry[100];
+
+    do{
+        clearScreen();
+        printf("\n=====================================\n");
+        printf("        AREA CONVERTER\n");
+        printf("=====================================\n\n");
+
+        printf("1. Square Meter to Square Kilometer\n");
+        printf("2. Square Kilometer to Square Meter\n");
+        printf("3. Square Meter to Square Centimeter\n");
+        printf("4. Square Centimeter to Square Meter\n");
+        printf("5. Square Meter to Square Millimeter\n");
+        printf("6. Square Millimeter to Square Meter\n");
+        printf("7. Back\n");
+        printf("\n");
+        choice = getValidChoice("Enter your choice: ", 1, 7);
+        switch (choice) {
+            case 1:
+              value = getValidNumber("Enter value: ");
+              result = value / 1000000.0;
+              printf("Result = %.2lf km^2\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf m^2 = %.2lf km^2",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 2:
+              value = getValidNumber("Enter value: ");
+              result = value * 1000000.0;
+              printf("Result = %.2lf m^2\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf km^2 = %.2lf m^2",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+            
+            case 3:
+              value = getValidNumber("Enter value: ");
+              result = value * 10000.0;
+              printf("Result = %.2lf cm^2\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf m^2 = %.2lf cm^2",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 4:
+              value = getValidNumber("Enter value: ");
+              result = value / 10000.0;
+              printf("Result = %.2lf m^2\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf cm^2 = %.2lf m^2",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 5:
+              value = getValidNumber("Enter value: ");
+              result = value * 1000000.0;
+              printf("Result = %.2lf mm^2\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf m^2 = %.2lf mm^2",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 6:
+              value = getValidNumber("Enter value: ");
+              result = value / 1000000.0;
+              printf("Result = %.2lf m^2\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf mm^2 = %.2lf m^2",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;              
+
+            case 7:
+              break;
+
+            default:
+              printf("\nInvalid choice! Please try again.\n\n");
+              pauseScreen();
+              break;
+        }
+    } while(choice!=7);
+}
+
 void unitConverterMenu()
 {
     int choice;
@@ -546,8 +646,7 @@ void unitConverterMenu()
               break;
 
             case 6:
-              printf("Speed Converter Coming Soon!\n");
-              pauseScreen();
+              areaConverter();
               break;
 
             case 7:
