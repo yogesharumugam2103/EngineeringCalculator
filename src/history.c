@@ -3,7 +3,8 @@
 #include "history.h"
 
 #define MAX_HISTORY 100
-#define MAX_ENTRY_LENGTH 100
+#define MAX_ENTRY_LENGTH 5000
+#define MAX_MATRIX_HISTORY 50
 
 char history[MAX_HISTORY][MAX_ENTRY_LENGTH];
 int historyCount = 0;
@@ -35,3 +36,6 @@ void addHistory(const char *entry)
         historyCount++;
     }
 }
+
+MatrixHistory matrixHistory[MAX_MATRIX_HISTORY];
+int matrixHistoryCount = 0;

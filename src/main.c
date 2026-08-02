@@ -5,6 +5,7 @@
 #include "utility.h"
 #include "history.h"
 #include "scientific.h"
+#include "matrix.h"
 
 int main()
 {
@@ -24,7 +25,7 @@ int main()
               break;
 
             case 3:
-              printf("\nMatrix Operations Selected\n\n");
+              matrixMenu();
               break;
 
             case 4:
