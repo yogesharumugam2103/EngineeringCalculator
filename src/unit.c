@@ -328,6 +328,81 @@ void temperatureConverter()
     } while(choice!=7);
 }
 
+void speedConverter()
+{
+    int choice;
+    double value;
+    double result;
+    char entry[100];
+
+    do{
+        clearScreen();
+        printf("\n=====================================\n");
+        printf("        SPEED CONVERTER\n");
+        printf("=====================================\n\n");
+
+        printf("1. Kilometer/hour to Meter/second\n");
+        printf("2. Meter/second to Kilometer/hour\n");
+        printf("3. Kilometer/hour to Mile/hour\n");
+        printf("4. Mile/hour to Kilometer/hour\n");
+        printf("5. Back\n");
+        printf("\n");
+        choice = getValidChoice("Enter your choice: ", 1, 5);
+        switch (choice) {
+            case 1:
+              value = getValidNumber("Enter value: ");
+              result = value / 3.6;
+              printf("Result = %.4lf m/s\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf km/h = %.4lf m/s",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 2:
+              value = getValidNumber("Enter value: ");
+              result = value * 3.6;
+              printf("Result = %.4lf km/h\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf m/s = %.4lf km/h",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+            
+            case 3:
+              value = getValidNumber("Enter value: ");
+              result = value * 0.621371;
+              printf("Result = %.4lf mph\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf km/h = %.4lf mph",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 4:
+              value = getValidNumber("Enter value: ");
+              result = value / 0.621371;
+              printf("Result = %.4lf km/h\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf mph = %.4lf km/h",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 5:
+              break;
+
+            default:
+              printf("\nInvalid choice! Please try again.\n\n");
+              pauseScreen();
+              break;
+        }
+    } while(choice!=5);
+}
 
 void unitConverterMenu()
 {
@@ -342,10 +417,10 @@ void unitConverterMenu()
         printf("1. Length\n");
         printf("2. Mass\n");
         printf("3. Temperature\n");
-        printf("4. Area\n");
-        printf("5. Volume\n");
-        printf("6. Speed\n");
-        printf("7. Time\n");
+        printf("4. Speed\n");
+        printf("5. Time\n");
+        printf("6. Area\n");
+        printf("7. Volume\n");
         printf("8. Back\n");
         printf("\n");
         choice = getValidChoice("Enter your choice: ", 1, 8);
@@ -363,8 +438,7 @@ void unitConverterMenu()
               break;
 
             case 4:
-              printf("Area Converter Coming Soon!\n");
-              pauseScreen();
+              speedConverter();
               break;
 
             case 5:
