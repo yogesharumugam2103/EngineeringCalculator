@@ -204,6 +204,129 @@ void massConverter()
     } while(choice!=7);
 }
 
+void temperatureConverter()
+{
+    int choice;
+    double value;
+    double result;
+    char entry[100];
+
+    do{
+        clearScreen();
+        printf("\n=====================================\n");
+        printf("        TEMPERATURE CONVERTER\n");
+        printf("=====================================\n\n");
+
+        printf("1. Celsius to Fahrenheit\n");
+        printf("2. Fahrenheit to Celsius\n");
+        printf("3. Celsius to Kelvin\n");
+        printf("4. Kelvin to Celsius\n");
+        printf("5. Fahrenheit to Kelvin\n");
+        printf("6. Kelvin to Fahrenheit\n");
+        printf("7. Back\n");
+        printf("\n");
+        choice = getValidChoice("Enter your choice: ", 1, 7);
+        switch (choice) {
+            case 1:
+              value = getValidNumber("Enter value: ");
+              result = (value * 9.0 / 5.0) + 32;
+              printf("Result = %.2lf deg F\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf deg C = %.2lf deg F",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 2:
+              value = getValidNumber("Enter value: ");
+              result = (value - 32) * 5.0 / 9.0;
+              printf("Result = %.2lf deg C\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf deg F = %.2lf deg C",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+            
+            case 3:
+              value = getValidNumber("Enter value: ");
+              if (value < -273.15)
+              {
+                printf("Temperature cannot be below absolute zero (-273.15 °C).\n");
+                pauseScreen();
+                break;
+              }
+              result = value + 273.15;
+              printf("Result = %.2lf K\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf deg C = %.2lf K",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 4:
+              value = getValidNumber("Enter value: ");
+              if (value < 0)
+              {
+                printf("Kelvin cannot be negative.\n");
+                pauseScreen();
+                break;
+              }              
+              result = value - 273.15;
+              printf("Result = %.2lf deg C\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf K = %.2lf deg C",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 5:
+              value = getValidNumber("Enter value: ");
+              if (value < -459.67)
+              {
+                printf("Temperature cannot be below absolute zero (-459.67 °F).\n");
+                pauseScreen();
+                break;
+              }              
+              result = (value - 32) * 5.0 / 9.0 + 273.15;
+              printf("Result = %.2lf K\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf deg F = %.2lf K",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 6:
+              value = getValidNumber("Enter value: ");
+              if (value < 0)
+              {
+                printf("Kelvin cannot be negative.\n");
+                pauseScreen();
+                break;
+              }                        
+              result = (value - 273.15) * 9.0 / 5.0 + 32;
+              printf("Result = %.2lf deg F\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf K = %.2lf deg F",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 7:
+              break;
+
+            default:
+              printf("\nInvalid choice! Please try again.\n\n");
+              pauseScreen();
+              break;
+        }
+    } while(choice!=7);
+}
 
 
 void unitConverterMenu()
@@ -236,8 +359,7 @@ void unitConverterMenu()
               break;
             
             case 3:
-              printf("Temperature Converter Coming Soon!\n");
-              pauseScreen();
+              temperatureConverter();
               break;
 
             case 4:
