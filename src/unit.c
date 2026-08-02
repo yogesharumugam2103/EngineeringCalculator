@@ -604,6 +604,106 @@ void areaConverter()
     } while(choice!=7);
 }
 
+void volumeConverter()
+{
+    int choice;
+    double value;
+    double result;
+    char entry[100];
+
+    do{
+        clearScreen();
+        printf("\n=====================================\n");
+        printf("        VOLUME CONVERTER\n");
+        printf("=====================================\n\n");
+
+        printf("1. Cubic Meter to Cubic Centimeter\n");
+        printf("2. Cubic Centimeter to Cubic Meter\n");
+        printf("3. Liter to Milliliter\n");
+        printf("4. Milliliter to Liter\n");
+        printf("5. Cubic Meter to Liter\n");
+        printf("6. Liter to Cubic Meter\n");
+        printf("7. Back\n");
+        printf("\n");
+        choice = getValidChoice("Enter your choice: ", 1, 7);
+        switch (choice) {
+            case 1:
+              value = getValidNumber("Enter value: ");
+              result = value * 1000000.0;
+              printf("Result = %.2lf cm^3\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf m^3 = %.2lf cm^3",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 2:
+              value = getValidNumber("Enter value: ");
+              result = value / 1000000.0;
+              printf("Result = %.2lf m^3\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf cm^3 = %.2lf m^3",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+            
+            case 3:
+              value = getValidNumber("Enter value: ");
+              result = value * 1000.0;
+              printf("Result = %.2lf mL\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf L = %.2lf mL",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 4:
+              value = getValidNumber("Enter value: ");
+              result = value / 1000.0;
+              printf("Result = %.2lf L\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf mL = %.2lf L",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 5:
+              value = getValidNumber("Enter value: ");
+              result = value * 1000.0;
+              printf("Result = %.2lf L\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf m^3 = %.2lf L",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 6:
+              value = getValidNumber("Enter value: ");
+              result = value / 1000.0;
+              printf("Result = %.2lf m^3\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf L = %.2lf m^3",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;              
+
+            case 7:
+              break;
+
+            default:
+              printf("\nInvalid choice! Please try again.\n\n");
+              pauseScreen();
+              break;
+        }
+    } while(choice!=7);
+}
+
 void unitConverterMenu()
 {
     int choice;
@@ -650,8 +750,7 @@ void unitConverterMenu()
               break;
 
             case 7:
-              printf("Time Converter Coming Soon!\n");
-              pauseScreen();
+              volumeConverter();
               break;
 
             case 8:
