@@ -404,6 +404,106 @@ void speedConverter()
     } while(choice!=5);
 }
 
+void timeConverter()
+{
+    int choice;
+    double value;
+    double result;
+    char entry[100];
+
+    do{
+        clearScreen();
+        printf("\n=====================================\n");
+        printf("        TIME CONVERTER\n");
+        printf("=====================================\n\n");
+
+        printf("1. Seconds to Minutes\n");
+        printf("2. Minutes to Seconds\n");
+        printf("3. Minutes to Hours\n");
+        printf("4. Hours to Minutes\n");
+        printf("5. Hours to Days\n");
+        printf("6. Days to Hours\n");
+        printf("7. Back\n");
+        printf("\n");
+        choice = getValidChoice("Enter your choice: ", 1, 7);
+        switch (choice) {
+            case 1:
+              value = getValidNumber("Enter value: ");
+              result = value / 60.0;
+              printf("Result = %.2lf min\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf sec = %.2lf min",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 2:
+              value = getValidNumber("Enter value: ");
+              result = value * 60.0;
+              printf("Result = %.2lf sec\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf min = %.2lf sec",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+            
+            case 3:
+              value = getValidNumber("Enter value: ");
+              result = value / 60.0;
+              printf("Result = %.2lf hr\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf min = %.2lf hr",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 4:
+              value = getValidNumber("Enter value: ");
+              result = value * 60.0;
+              printf("Result = %.2lf min\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf hr = %.2lf min",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 5:
+              value = getValidNumber("Enter value: ");
+              result = value / 24.0;
+              printf("Result = %.2lf day\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf hr = %.2lf day",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 6:
+              value = getValidNumber("Enter value: ");
+              result = value * 24.0;
+              printf("Result = %.2lf hr\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf day = %.2lf hr",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;              
+
+            case 7:
+              break;
+
+            default:
+              printf("\nInvalid choice! Please try again.\n\n");
+              pauseScreen();
+              break;
+        }
+    } while(choice!=7);
+}
+
 void unitConverterMenu()
 {
     int choice;
@@ -442,8 +542,7 @@ void unitConverterMenu()
               break;
 
             case 5:
-              printf("Volume Converter Coming Soon!\n");
-              pauseScreen();
+              timeConverter();
               break;
 
             case 6:
