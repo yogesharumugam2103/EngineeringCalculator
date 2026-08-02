@@ -7,6 +7,7 @@
 #include "scientific.h"
 #include "matrix.h"
 #include "unit.h"
+#include "number_system.h"
 
 
 int main()
@@ -39,7 +40,7 @@ int main()
               break;
 
             case 6:
-              printf("\nNumber System Converter Selected\n\n");
+              numberSystemMenu();
               break;
 
             case 7:
