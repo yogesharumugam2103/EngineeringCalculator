@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 #include "unit.h"
 #include "input.h"
 #include "utility.h"
@@ -31,7 +30,7 @@ void lengthConverter()
             case 1:
               value = getValidNumber("Enter value: ");
               result = value / 1000.0;
-              printf("Result = %.4lf\n", result);
+              printf("Result = %.4lf km\n", result);
               snprintf(entry, sizeof(entry),
                        "%.2lf m = %.4lf km",
                        value, result);
@@ -42,7 +41,7 @@ void lengthConverter()
             case 2:
               value = getValidNumber("Enter value: ");
               result = value * 1000.0;
-              printf("Result = %.4lf\n", result);
+              printf("Result = %.4lf m\n", result);
               snprintf(entry, sizeof(entry),
                        "%.2lf km = %.4lf m",
                        value, result);
@@ -53,7 +52,7 @@ void lengthConverter()
             case 3:
               value = getValidNumber("Enter value: ");
               result = value * 100.0;
-              printf("Result = %.4lf\n", result);
+              printf("Result = %.4lf cm\n", result);
               snprintf(entry, sizeof(entry),
                        "%.2lf m = %.4lf cm",
                        value, result);
@@ -64,7 +63,7 @@ void lengthConverter()
             case 4:
               value = getValidNumber("Enter value: ");
               result = value / 100.0;
-              printf("Result = %.4lf\n", result);
+              printf("Result = %.4lf m\n", result);
               snprintf(entry, sizeof(entry),
                        "%.2lf cm = %.4lf m",
                        value, result);
@@ -75,7 +74,7 @@ void lengthConverter()
             case 5:
               value = getValidNumber("Enter value: ");
               result = value * 1000.0;
-              printf("Result = %.4lf\n", result);
+              printf("Result = %.4lf mm\n", result);
               snprintf(entry, sizeof(entry),
                        "%.2lf m = %.4lf mm",
                        value, result);
@@ -86,7 +85,7 @@ void lengthConverter()
             case 6:
               value = getValidNumber("Enter value: ");
               result = value / 1000.0;
-              printf("Result = %.4lf\n", result);
+              printf("Result = %.4lf m\n", result);
               snprintf(entry, sizeof(entry),
                        "%.2lf mm = %.4lf m",
                        value, result);
@@ -105,6 +104,105 @@ void lengthConverter()
     } while(choice!=7);
 }
 
+void massConverter()
+{
+    int choice;
+    double value;
+    double result;
+    char entry[100];
+
+    do{
+        clearScreen();
+        printf("\n=====================================\n");
+        printf("        MASS CONVERTER\n");
+        printf("=====================================\n\n");
+
+        printf("1. Kilogram to Gram\n");
+        printf("2. Gram to Kilogram\n");
+        printf("3. Kilogram to Milligram\n");
+        printf("4. Milligram to Kilogram\n");
+        printf("5. Gram to Milligram\n");
+        printf("6. Milligram to Gram\n");
+        printf("7. Back\n");
+        printf("\n");
+        choice = getValidChoice("Enter your choice: ", 1, 7);
+        switch (choice) {
+            case 1:
+              value = getValidNumber("Enter value: ");
+              result = value * 1000.0;
+              printf("Result = %.4lf g\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf kg = %.4lf g",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 2:
+              value = getValidNumber("Enter value: ");
+              result = value / 1000.0;
+              printf("Result = %.4lf kg\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf g = %.4lf kg",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+            
+            case 3:
+              value = getValidNumber("Enter value: ");
+              result = value * 1000000.0;
+              printf("Result = %.4lf mg\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf kg = %.4lf mg",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 4:
+              value = getValidNumber("Enter value: ");
+              result = value / 1000000.0;
+              printf("Result = %.4lf kg\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf mg = %.4lf kg",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 5:
+              value = getValidNumber("Enter value: ");
+              result = value * 1000.0;
+              printf("Result = %.4lf mg\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf g = %.4lf mg",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 6:
+              value = getValidNumber("Enter value: ");
+              result = value / 1000.0;
+              printf("Result = %.4lf g\n", result);
+              snprintf(entry, sizeof(entry),
+                       "%.2lf mg = %.4lf g",
+                       value, result);
+              addHistory(entry);
+              pauseScreen();
+              break;
+
+            case 7:
+              break;
+
+            default:
+              printf("\nInvalid choice! Please try again.\n\n");
+              pauseScreen();
+              break;
+        }
+    } while(choice!=7);
+}
 
 
 
@@ -134,8 +232,7 @@ void unitConverterMenu()
               break;
 
             case 2:
-              printf("Mass Converter Coming Soon!\n");
-              pauseScreen();
+              massConverter();
               break;
             
             case 3:
