@@ -6,6 +6,8 @@
 #include "history.h"
 #include "scientific.h"
 #include "matrix.h"
+#include "unit.h"
+
 
 int main()
 {
@@ -29,7 +31,7 @@ int main()
               break;
 
             case 4:
-              printf("\nUnit Converter Selected\n\n");
+              unitConverterMenu();
               break;
 
             case 5:
