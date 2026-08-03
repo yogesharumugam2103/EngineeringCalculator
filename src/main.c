@@ -8,6 +8,7 @@
 #include "matrix.h"
 #include "unit.h"
 #include "number_system.h"
+#include "statistics.h"
 
 
 int main()
@@ -36,7 +37,7 @@ int main()
               break;
 
             case 5:
-              printf("\nStatistics Selected\n\n");
+              statisticsCalculatorMenu();
               break;
 
             case 6:
