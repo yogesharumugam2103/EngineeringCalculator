@@ -9,6 +9,7 @@
 #include "unit.h"
 #include "number_system.h"
 #include "statistics.h"
+#include "geometry.h"
 
 
 int main()
@@ -17,7 +18,7 @@ int main()
     do{
         clearScreen();
         displayMainMenu();
-        choice = getValidChoice("Enter your choice: ", 1, 8);
+        choice = getValidChoice("Enter your choice: ", 1, 9);
 
         switch (choice) {
             case 1:
@@ -45,18 +46,22 @@ int main()
               break;
 
             case 7:
+              geometryCalculatorMenu();
+              break;              
+
+            case 8:
               displayHistory();
               pauseScreen();
               break;
 
-            case 8:
+            case 9:
               printf("\nThank you for using Engineering Calculator!\n\n");
               break;
 
             default:
               printf("\nInvalid choice! Please try again.\n\n");
         }
-    } while(choice!=8);
+    } while(choice!=9);
 
     return 0;
 }

@@ -12,7 +12,8 @@ SRC = src/main.c \
       src/matrix.c \
       src/unit.c \
       src/number_system.c \
-      src/statistics.c
+      src/statistics.c \
+      src/geometry.c
 
 TARGET = calculator
 

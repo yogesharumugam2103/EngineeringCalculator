@@ -14,7 +14,8 @@ void displayMainMenu()
         printf("4. Unit Converter\n");
         printf("5. Statistics\n");
         printf("6. Number System Converter\n");
-        printf("7. History\n");
-        printf("8. Exit\n\n");
+        printf("7. Geometry Calculator\n");
+        printf("8. History\n");
+        printf("9. Exit\n\n");
 
 }

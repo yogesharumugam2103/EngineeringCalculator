@@ -49,3 +49,21 @@ int getValidChoice(const char *message, int min, int max)
         }
     }
 }
+
+double getPositiveNumber(const char *prompt)
+{
+    double num;
+
+    do
+    {
+        num = getValidNumber(prompt);
+
+        if (num <= 0)
+        {
+            printf("Value must be greater than zero.\n");
+        }
+
+    } while (num <= 0);
+
+    return num;
+}
